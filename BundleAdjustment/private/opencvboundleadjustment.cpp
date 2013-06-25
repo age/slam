@@ -56,18 +56,18 @@ namespace LuxSlam
                 points_opt.push_back(queueFrame[i].matches[j].second3d);
 
 
-        for (int i=0 ; i < cameraMatrix.size(); i++)
+        for (unsigned int i=0 ; i < cameraMatrix.size(); i++)
         {
             std::vector<int>  vis(points_opt.size(), 0);
             std::vector<cv::Point2d>  imgp(points_opt.size());
 
             int counter = 0 ;
 
-            for (int j = 0; j<queueFrame.size() ; j++)
+            for (unsigned int j = 0; j<queueFrame.size() ; j++)
             {
                 std::vector<MatchPoints> matches = queueFrame.at(j).matches;
 
-                for (int k = 0 ; k<matches.size(); k++)
+                for (unsigned int k = 0 ; k<matches.size(); k++)
                 {
                     if (j == i)
                     {
@@ -86,11 +86,11 @@ namespace LuxSlam
 
             counter = 0 ;
 
-            for (int j = 0; j<queueFrame.size() ; j++)
+            for (unsigned int j = 0; j<queueFrame.size() ; j++)
             {
                 std::vector<MatchPoints> matches = queueFrame.at(j).matches;
 
-                for (int k = 0 ; k<matches.size(); k++)
+                for (unsigned int k = 0 ; k<matches.size(); k++)
                 {
                     if (j == i+1 && j>0)
                     {
@@ -105,20 +105,20 @@ namespace LuxSlam
             imagePoints.push_back(imgp);
         }
 
-        for (int i = 0 ; i<imagePoints.size();i++)
+        for (unsigned int i = 0 ; i<imagePoints.size();i++)
         {
-            for (int j = 0 ; j<imagePoints.at(i).size(); j++)
+            for (unsigned int j = 0 ; j<imagePoints.at(i).size(); j++)
                 std::cerr<<imagePoints.at(i).at(j)<<" ";
             std::cerr<<"\n";
         }
-        for (int i = 0 ; i<visiblity.size();i++)
+        for (unsigned int i = 0 ; i<visiblity.size();i++)
         {
-            for (int j = 0 ; j<visiblity.at(i).size(); j++)
+            for (unsigned int j = 0 ; j<visiblity.at(i).size(); j++)
                 std::cerr<<visiblity.at(i).at(j)<<" ";
             std::cerr<<"\n";
         }
 
-        for (int i= 0;i<cameraMatrix.size();i++)
+        for (unsigned int i= 0;i<cameraMatrix.size();i++)
         {
             R_opt.push_back(queueFrame.at(i).triple.rotation_matrix);
 
@@ -126,7 +126,7 @@ namespace LuxSlam
 
 
         }
-        for (int i = 0; i < points_opt.size(); ++i)
+        for (unsigned int i = 0; i < points_opt.size(); ++i)
             std::cerr <<"("<< points_opt[i].x << ", " << points_opt[i].y << ", "<< points_opt[i].z << ")\n";
 
         std::cerr <<"tvec"<<T_opt.at(1)<<"\n";
@@ -135,7 +135,7 @@ namespace LuxSlam
         lms.bundleAdjust(points_opt, imagePoints, visiblity, cameraMatrix, R_opt, T_opt, distCoeffs, criteria);
         std::cerr <<"tvec"<<T_opt.at(1)<<"\n";
 
-        for (int i = 0; i < points_opt.size(); ++i)
+        for (unsigned int i = 0; i < points_opt.size(); ++i)
             std::cerr <<"("<< points_opt[i].x << ", " << points_opt[i].y << ", "<< points_opt[i].z << ")\n";
 
         cv::Mat eulerAngles = StaticFunctions::getEulerAngles(R_opt.at(1));
