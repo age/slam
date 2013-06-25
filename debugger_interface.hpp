@@ -13,9 +13,9 @@ class SlamInterface : public IAbstractAlgorithm
     int frames_step;
 public:
     const std::string id_string (void);
-    SlamInterface (arstudio::Config::ptr);
-	bool create ();
+    SlamInterface (arstudio::Config *);
+    bool create ();
     bool run (const cv::Mat &, const cv::Mat &);
 
-	CoreSlam * slam;
+    CoreSlam * slam;
 };

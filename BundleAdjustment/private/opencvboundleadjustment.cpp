@@ -142,7 +142,11 @@ namespace LuxSlam
 
         arstudio::Logger & l = arstudio::Logger::instance();
 
-        l.log_camera(cv::Point3d(T_opt.at(1)),eulerAngles.at<float>(0)/M_PI*180,eulerAngles.at<float>(1)/M_PI*180,eulerAngles.at<float>(2)/M_PI*180,"BA-camera");
+        l.log_camera(cv::Point3d(T_opt.at(1)),
+                     cv::Point3d(eulerAngles.at<float>(0)/M_PI*180,
+                                 eulerAngles.at<float>(1)/M_PI*180,
+                                 eulerAngles.at<float>(2)/M_PI*180),
+                     "BA-camera");
 
     }
 }

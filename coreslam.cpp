@@ -172,7 +172,10 @@ CoreSlam::CoreSlam()
 
         arstudio::Logger & l = arstudio::Logger::instance();
 
-        l.log_camera(global_transformation_vector.translation_vector,eulerAngles.at<float>(0)/M_PI*180,eulerAngles.at<float>(1)/M_PI*180,eulerAngles.at<float>(2)/M_PI*180);
+        l.log_camera(global_transformation_vector.translation_vector,
+                     cv::Point3d(eulerAngles.at<float>(0)/M_PI*180,
+                                 eulerAngles.at<float>(1)/M_PI*180,
+                                 eulerAngles.at<float>(2)/M_PI*180));
         l.log_image(results,"fatures");
 
         delete prev_frame;
