@@ -56,6 +56,6 @@ if (DEFINED ALGO_INCLUDES)
 endif ()
 
 if (DEFINED ALGO_CODE)
-	set(ALGO_CODE "${ALGO_CODE}algo_list.push_back (new SlamInterface(config));\n"
+	set(ALGO_CODE "${ALGO_CODE}m_algorithm_list.push_back (new SlamInterface(config));\n"
 		PARENT_SCOPE)
 endif()
