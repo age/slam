@@ -1,5 +1,7 @@
 #include <debugger_interface.hpp>
 
+static const AlgorithmRegisterer<SlamInterface> registerer;
+
 const std::string SlamInterface::id_string()
 {
     return "slam algorithm";

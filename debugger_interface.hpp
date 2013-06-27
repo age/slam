@@ -4,6 +4,7 @@
 #include <Logger.hpp>
 #include <Config.hpp>
 #include <AlgoInterface.hpp>
+#include <AlgorithmFactory.hpp>
 
 using namespace LuxSlam;
 
