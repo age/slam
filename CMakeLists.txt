@@ -38,4 +38,4 @@ set(sources coreslam.cpp
     debugger_interface.cpp
 )
 
-add_library(NewOfNewSlam SHARED ${sources})
+add_library(slam SHARED ${sources})
