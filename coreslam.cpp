@@ -1,5 +1,5 @@
 #include "coreslam.h"
-#include "QDebug"
+#include <QDebug>
 #include "math.h"
 #include <Logger.hpp>
 
