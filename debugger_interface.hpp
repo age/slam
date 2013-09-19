@@ -16,7 +16,7 @@ public:
     const std::string id_string (void);
     SlamInterface (arstudio::Config *);
     bool create ();
-    bool run (const cv::Mat &, const cv::Mat &);
+    bool run (const cv::Mat &, const cv::Mat &, int);
 
     CoreSlam * slam;
 };

@@ -19,7 +19,8 @@ bool SlamInterface::create()
     return true;
 }
 
-bool SlamInterface::run(const cv::Mat &image, const cv::Mat &dmap)
+bool SlamInterface::run(const cv::Mat &image, const cv::Mat &dmap,
+                        int frame_index)
 {
     LuxFrame * f = new LuxFrame;
     f->image = image;
