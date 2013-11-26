@@ -38,4 +38,4 @@ set(sources coreslam.cpp
     debugger_interface.cpp
 )
 
-add_library(slam SHARED ${sources})
+add_library(slam STATIC ${sources})
